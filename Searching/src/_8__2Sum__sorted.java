@@ -30,7 +30,7 @@ public class _8__2Sum__sorted {
         }
         return false;
     }
-    public static boolean threePairSum(int[] arr,int target){
+    public static boolean threePairSum(int[] arr,int target) {
         int left = 0, right = arr.length-1;
         int mid = left + (right - left) / 2;
         while(left < right){

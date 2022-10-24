@@ -2,25 +2,25 @@
 public class _6_SearchSortedRotatedArr {
 //    static int count = 0;
     public static int Search(int[] nums,int target) { // time : O(logn)
-        int low=0, high = nums.length-1;
-        while(low <= high) {//    Like Normal Binary Search
+        int left = 0, right = nums.length-1;
+        while(left <= right) {//    Like Normal Binary Search
 //            count++;
-            int mid = low + ((high - low)/2);
+            int mid = left + ((right - left)/2);
             if(target == nums[mid]) {
                 return mid;
             }
-            else if(nums[low] <= nums[mid]) {      // left half sorted
-                if(nums[low] <= target && target <= nums[mid]) {    //
-                    high = mid-1;
+            else if(nums[left] <= nums[mid]) {      // left half sorted
+                if(nums[left] <= target && target <= nums[mid]) {    //
+                    right = mid - 1;
                 } else{
-                    low = mid+1;
+                    left = mid + 1;
                 }
             }
             else {                              // right half sorted
-                if(nums[mid] <= target && target <= nums[high]) {   //
-                    low = mid+1;
+                if(nums[mid] <= target && target <= nums[right]) {   //
+                    left = mid+1;
                 } else{
-                    high = mid-1;
+                    right = mid-1;
                 }
             }
         }
