@@ -9,12 +9,12 @@ public class _3_0_LCS {
 /**
     public static int lcs(String X, String Y, int m, int n) {
         // base condition
-        if(m == 0 || n == 0) {
+        if (m == 0 || n == 0) {
             return 0;
         }
 
         // choice diagram
-        if(X.charAt(m - 1) == Y.charAt(n - 1)) {
+        if (X.charAt(m - 1) == Y.charAt(n - 1)) {
             return 1 + lcs(X, Y, m - 1, n - 1);
         } else {
                 // here omit(exclude) 1 char I don't know what char, so 1st i exclude char of X and Y, return the max of them
@@ -24,18 +24,18 @@ public class _3_0_LCS {
 */
 
     // Memoization [Top-down]       TC : O(m*n)   Sc : O(m*n)
-/**
-    public static int lcsMemo(String X, String Y, int m, int n, int[][] t) {
+/*
+    public static int lcs(String X, String Y, int m, int n, int[][] t) {
         // base condition
-        if(m == 0 || n == 0) {
+        if (m == 0 || n == 0) {
             return 0;
         }
-        if(t[m][n] != -1) {
+        if (t[m][n] != -1) {
             return t[m][n];
         }
 
         // choice diagram
-        if(X.charAt(m - 1) == Y.charAt(n - 1)) {
+        if (X.charAt(m - 1) == Y.charAt(n - 1)) {
             t[m][n] = 1 + lcs(X, Y, m - 1, n - 1, t);
             return t[m][n];
         } else {
@@ -48,19 +48,20 @@ public class _3_0_LCS {
     // Tabulation [Bottom-up]       TC : O(m*n)   Sc : O(m*n)
 //    Using 2-D Array to store the Overlapping sub-problems.
 //    Traversing the whole array to find the solution and storing in table.
+
     public static int lcs(String X, String Y, int m, int n) {
         int[][] t = new int[m + 1][n + 1];
 
         // Initialize 1st row as 0, m = 0 is possible for all eles
-        for(int i = 0; i <= n; i++)
+        for (int i = 0; i <= n; i++)
             t[0][i] = 0;
 
         // Initialize 1st col as 0, n = 0 is possible for all eles
-        for(int i = 0; i <= m; i++)
+        for (int i = 0; i <= m; i++)
             t[i][0] = 0;
 
         //[Choice diagram] Fill the t table in bottom up manner (fashion)
-        for(int i = 1; i <= m; i++) {
+        for (int i = 1; i <= m; i++) {
             for(int j = 1; j <= n; j++) {
                 if(X.charAt(i - 1) == Y.charAt(j - 1)) {
                     t[i][j] = 1 + t[i - 1][j - 1];

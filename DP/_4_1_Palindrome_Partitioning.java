@@ -15,18 +15,18 @@ public class _4_1_Palindrome_Partitioning {
     public static int minPalPartition(String s, int i, int j) {
         // base condition
         // if there is only 1 char in string, i don't need to partition becoz empty str & 1 char are already palindrome
-        if(i >= j) {
+        if (i >= j) {
             return 0;
         }
 
         // if string is already palindrome, i don't need to partition str
-        if(isPalindrome(s, i, j)) {
+        if (isPalindrome(s, i, j)) {
             return 0;
         }
 
         int min = Integer.MAX_VALUE;
         // Iterating from i to j - 1
-        for(int k = i; k <= j - 1; k++) {
+        for (int k = i; k <= j - 1; k++) {
             int tempAns = 1 + minPalPartition(s, i , k) + minPalPartition(s, k + 1, j);
             min = Math.min(min, tempAns);
         }
@@ -49,22 +49,22 @@ public class _4_1_Palindrome_Partitioning {
     public static int minPalPartition(String s, int i, int j) {
         // base condition
         // if there is only 1 char in string, i don't need to partition becoz empty str & 1 char are already palindrome
-        if(i >= j) {
+        if (i >= j) {
             return 0;
         }
 
         // if string is already palindrome, i don't need to partition str
-        if(isPalindrome(s, i, j)) {
+        if (isPalindrome(s, i, j)) {
             return 0;
         }
 
-        if(t[i][j] != -1) {
+        if (t[i][j] != -1) {
             return t[i][j];
         }
 
         int min = Integer.MAX_VALUE;
         // Iterating from i to j - 1
-        for(int k = i; k <= j - 1; k++) {
+        for (int k = i; k <= j - 1; k++) {
             int tempAns = 1 + minPalPartition(s, i , k) + minPalPartition(s, k + 1, j);
             min = Math.min(min, tempAns);
         }
@@ -76,32 +76,32 @@ public class _4_1_Palindrome_Partitioning {
     public static int minPalPartition(String s, int i, int j) {
         // base condition
         // if there is only 1 char in string, i don't need to partition becoz empty str & 1 char are already palindrome
-        if(i >= j) {
+        if (i >= j) {
             return 0;
         }
 
         // if string is already palindrome, i don't need to partition str
-        if(isPalindrome(s, i, j)) {
+        if (isPalindrome(s, i, j)) {
             return 0;
         }
 
-        if(t[i][j] != -1) {
+        if (t[i][j] != -1) {
             return t[i][j];
         }
 
         int min = Integer.MAX_VALUE;
         // Iterating from i to j - 1
-        for(int k = i; k <= j - 1; k++) {
+        for (int k = i; k <= j - 1; k++) {
             int left, right;
 
-            if(t[i][k] != -1) {
+            if (t[i][k] != -1) {
                 left = t[i][k];
             } else {
                 left = minPalPartition(s, i, k);
                 t[i][j] = left;
             }
 
-            if(t[k + 1][j] != -1) {
+            if (t[k + 1][j] != -1) {
                 right = t[i][k];
             } else {
                 right = minPalPartition(s, k + 1, j);
@@ -123,7 +123,7 @@ public class _4_1_Palindrome_Partitioning {
         t = new int[n][n];
         //  initialize all the cells(elements) -1
         Arrays.stream(t).forEach(a -> Arrays.fill(a, -1));
-//        for(int[] row: t) {
+//        for (int[] row: t) {
 //            Arrays.fill(row, -1);
 //        }
 

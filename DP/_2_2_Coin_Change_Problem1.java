@@ -3,8 +3,8 @@ package DP;
 import java.util.Arrays;
 
 // Maximum Number of ways [Count of subset sum]
- public class _2_2_Coin_Change_Problem1 { // https://www.geeksforgeeks.org/coin-change-dp-7/
-  // Recursion // TC: O(2^sum)
+public class _2_2_Coin_Change_Problem1 { // https://www.geeksforgeeks.org/coin-change-dp-7/
+    // Recursion // TC: O(2^sum)
 /*
     public static int maxWays(int[] coin, int n, int sum) {
         // base condition
@@ -24,6 +24,7 @@ import java.util.Arrays;
         }
     }
 */
+
     // Memoization [Top-down]
 /**
     public static int[][] t;
@@ -57,19 +58,19 @@ import java.util.Arrays;
         int[][] t = new int[n + 1][sum + 1];
 
         // Initialize 1st col as 1, becoz sum = 0 is possible for all the ele
-        for(int i = 0; i <= n; i++)
+        for (int i = 0; i <= n; i++)
             t[i][0] = 1;
 
         // Initialize 1sts row as 0 except t[0][0], no other sum except 0 is possible
         // there is no any coins , then no solution exist
-        for(int i = 1; i <= sum; i++)
+        for (int i = 1; i <= sum; i++)
             t[0][i] = 0;
 
         // choice diagram
-        for(int i = 1; i <= n; i++) {
-            for(int j = 1; j <= sum; j++) {
-                if(coins[i-1] <= j) {
-                    t[i][j] = t[i][j - coins[i-1]] + t[i - 1][j];
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= sum; j++) {
+                if (coins[i - 1] <= j) {
+                    t[i][j] = t[i][j - coins[i - 1]] + t[i - 1][j];
                 } else {
                     t[i][j] = t[i - 1][j];
                 }
@@ -80,7 +81,7 @@ import java.util.Arrays;
 
 
     public static void main(String[] args) {
-        int[] coins = {1,2,3};
+        int[] coins = {1, 2, 3};
 //        int[] coins = {2,3,5};
         int n = coins.length, sum = 4;
 
@@ -99,18 +100,18 @@ import java.util.Arrays;
 //    Output: 5
 //    Explanation: There are five solutions: {2,2,2,2,2}, {2,2,3,3}, {2,2,6}, {2,3,5} and {5,5}.
     /**
-                        ({1,2,3}, 5)
-                      /               \
-                    /                   \
-             ({1,2,3}, 2)                 ({1,2}, 5)
-            /       \                        /     \
-          /          \                      /        \
+     ({1,2,3}, 5)
+     /               \
+     /                   \
+     ({1,2,3}, 2)                 ({1,2}, 5)
+     /       \                        /     \
+     /          \                      /        \
      ({1,2,3}, -1)  ({1,2}, 2)         ({1,2}, 3)     ({1}, 5)
      /     \               /     \            /    \
-   /        \             /       \          /       \
- ({1,2},0)  C({1},2)   C({1,2},1) C({1},3)  ({1}, 4)  ({}, 5)
-    / \           / \          /\            /    \
-   /   \         /   \        /  \          /      \
+     /        \             /       \          /       \
+     ({1,2},0)  C({1},2)   C({1,2},1) C({1},3)  ({1}, 4)  ({}, 5)
+     / \           / \          /\            /    \
+     /   \         /   \        /  \          /      \
      .      .  .     .   .     .        ({1}, 3)  ({}, 4)
 
      / \

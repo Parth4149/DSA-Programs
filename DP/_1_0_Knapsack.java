@@ -8,20 +8,19 @@ public class _1_0_Knapsack {
     // 1st Recursion
     // TC : O(2^n). As there are redundant sub-problems.
     // SC :O(1) + O(N). As no extra data structure has been used for storing values but O(N) auxiliary stack space(ASS) has been
-                        // used for recursion stack.
-    /**
+    // used for recursion stack.
+/**
     public static int knapsack(int[] weight, int[] value, int n, int W) {
         // base condition
-        if(n == 0 || W == 0) {
+        if (n == 0 || W == 0) {
             return 0;
         }
 
         // choice diagram
-        if(weight[n - 1] <= W) {
+        if (weight[n - 1] <= W) {
             // 2 choices whether i add into knapsack or not
-            return Math.max( (value[n-1] + knapsack(weight, value, n-1, W - weight[n-1])), knapsack(weight, value, n-1, W));
-        }
-        else {
+            return Math.max((value[n - 1] + knapsack(weight, value, n - 1, W - weight[n - 1])), knapsack(weight, value, n - 1, W));
+        } else {
             return knapsack(weight, value, n - 1, W);
         }
     }
@@ -30,25 +29,25 @@ public class _1_0_Knapsack {
     // 2nd Memoization [Top-Down]   TC : O(n*w)   SC : O(n*w)
     // we have to make Matrix of changeable values (of Input)
     static int[][] t;
-    public static int knapsack(int[] weight, int[] value, int n,  int W) {
+
+    public static int knapsack(int[] weight, int[] value, int n, int W) {
         // base condition
-        if(n == 0 || W == 0) {
+        if (n == 0 || W == 0) {
             return 0;
         }
         // check if it is valid(-1) or not , if it is valid -> return it
-        if(t[n][W] != -1) {
+        if (t[n][W] != -1) {
             return t[n][W];
         }
 
         // choice diagram
-        if(weight[n - 1] <= W) {
+        if (weight[n - 1] <= W) {
             // 2 choices whether i add into knapsack or not
             // Return the maximum of two cases: (1) nth item included (2) not included
-            t[n][W] = Math.max( (value[n-1] + knapsack(weight,value,n-1,W - weight[n-1])), knapsack(weight, value,n-1, W));
+            t[n][W] = Math.max((value[n - 1] + knapsack(weight, value, n - 1, W - weight[n - 1])), knapsack(weight, value, n - 1, W));
             return t[n][W];
-        }
-        else { // (weight[n - 1] > W)
-            t[n][W] = knapsack(weight, value,n - 1, W);
+        } else { // (weight[n - 1] > W)
+            t[n][W] = knapsack(weight, value, n - 1, W);
             return t[n][W];
         }
     }
@@ -64,21 +63,20 @@ public class _1_0_Knapsack {
         //[2] Choice Diagram --> Iterative(loop)
 
         //Initialize 1st row as 0, n = 0 is possible with all eles
-        for(int i = 0; i <= W; i++) // If n is 0 , then answer is false
+        for (int i = 0; i <= W; i++) // If n is 0 , then answer is false
             t[0][i] = 0;
 
         // Initialize 1st column as 0, sum = 0 is possible with all elements.
-        for(int i = 0; i <= n; i++) // If sum is 0, then answer is true
+        for (int i = 0; i <= n; i++) // If sum is 0, then answer is true
             t[i][0] = 0;
 
         //[Choice diagram] Fill the t table in bottom up manner
-        for(int i = 1; i <= n; i++) {        // i -> n ,  w -> W
-            for(int j = 1; j <= W; j++) {
-                if(weight[i - 1] <= j) {  // weight[n - 1] <= W
-                    t[i][j] = Math.max( value[i-1] + t[i-1][j - weight[i-1]] , t[i-1][j] );
-                }
-                else { // weight[n - 1] > j
-                    t[i][j] = t[i-1][j];
+        for (int i = 1; i <= n; i++) {        // i -> n ,  w -> W
+            for (int j = 1; j <= W; j++) {
+                if (weight[i - 1] <= j) {  // weight[n - 1] <= W
+                    t[i][j] = Math.max(value[i - 1] + t[i - 1][j - weight[i - 1]], t[i - 1][j]);
+                } else { // weight[n - 1] > j
+                    t[i][j] = t[i - 1][j];
                 }
             }
         }
@@ -93,22 +91,21 @@ public class _1_0_Knapsack {
         int[][] t = new int[2][W + 1];
 
         //Initialize 1st row as 0, n = 0 is possible with all eles
-        for(int i = 0; i <= W; i++) // If n is 0 , then answer is false
+        for (int i = 0; i <= W; i++) // If n is 0 , then answer is false
             t[0][i] = 0;
 
         // Initialize 1st column as 0, sum = 0 is possible with all elements.
-        for(int i = 0; i < 2; i++) // If sum is 0, then answer is true
+        for (int i = 0; i < 2; i++) // If sum is 0, then answer is true
             t[i][0] = 0;
 
         //[2] Choice Diagram --> Iterative(loop)
         // We start traversing from 2nd ele. because we have already initialize 1st row & col
-        for(int i = 1; i <= n; i++) {        // i -> n ,  w -> W
-            for(int j = 1; j <= W; j++) {
-                if(weight[i - 1] <= j) {  // weight[n - 1] <= j
-                    t[i % 2][j] = Math.max( value[i-1] + t[(i-1) % 2][j - weight[i-1]] , t[(i-1) % 2][j] );
-                }
-                else { // weight[n - 1] > j
-                    t[i % 2][j] = t[(i-1) % 2][j];
+        for (int i = 1; i <= n; i++) {        // i -> n ,  w -> W
+            for (int j = 1; j <= W; j++) {
+                if (weight[i - 1] <= j) {  // weight[n - 1] <= j
+                    t[i % 2][j] = Math.max(value[i - 1] + t[(i - 1) % 2][j - weight[i - 1]], t[(i - 1) % 2][j]);
+                } else { // weight[n - 1] > j
+                    t[i % 2][j] = t[(i - 1) % 2][j];
                 }
             }
         }
@@ -124,8 +121,8 @@ public class _1_0_Knapsack {
 //        int[] value =  { 60, 100, 120 };
 //        int W = 50, n = value.length; // 220
 
-        int[] wight = {2,1,2};
-        int[] value = {4,4,2};
+        int[] wight = {2, 1, 2};
+        int[] value = {4, 4, 2};
         int W = 3, n = 3; // 8
 
         //-> Memoization (Top down)

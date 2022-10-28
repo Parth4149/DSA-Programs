@@ -10,20 +10,18 @@ public class _1_1_Subset_Sum {
 /**
     public static boolean isSubsetSum(int[] arr, int n, int sum) {
         // base condition
-        if(sum == 0)
+        if (sum == 0)
             return true;
-        if(n == 0)
+        if (n == 0)
             return false;
 
         // choice diagram        // here we cannot compare bool vals, so we use OR operator instead of max
         // if I include the ele, our capacity(sum) will be reduced, so i need to subtract sum(target) by ele.
-        if(arr[n - 1] <= sum) {
+        if (arr[n - 1] <= sum) {
             // 2 choices I include value of item or exclude(omit) , if I include, i need to subtract it in sum
-            return isSubsetSum(arr,n - 1,sum - arr[n-1]) || isSubsetSum(arr,n - 1, sum);
-        }
-
-        else {
-            return isSubsetSum(arr,n - 1, sum);
+            return isSubsetSum(arr, n - 1, sum - arr[n - 1]) || isSubsetSum(arr, n - 1, sum);
+        } else {
+            return isSubsetSum(arr, n - 1, sum);
         }
     }
 */
@@ -36,17 +34,16 @@ public class _1_1_Subset_Sum {
     static boolean[][] t;
     public static boolean isSubsetSum(int[] arr, int n, int sum) {
         // base condition
-        if(sum == 0)
+        if (sum == 0)
             return true;
-        if(n == 0)
+        if (n == 0)
             return false;
 
         // choice diagram
-        if(arr[n - 1] <= sum) {
-            t[n][sum] = isSubsetSum(arr, n - 1, sum - arr[n-1]) || isSubsetSum(arr, n - 1, sum);
+        if (arr[n - 1] <= sum) {
+            t[n][sum] = isSubsetSum(arr, n - 1, sum - arr[n - 1]) || isSubsetSum(arr, n - 1, sum);
             return t[n][sum];
-        }
-        else {
+        } else {
             t[n][sum] = isSubsetSum(arr, n - 1, sum);
             return t[n][sum];
         }
@@ -64,17 +61,17 @@ public class _1_1_Subset_Sum {
 
         // base condition
         // Initialize 1st column as true, 0 sum is possible  with all elements.
-        for(int i = 0; i <= n; i++) // If sum is 0, then answer is true
+        for (int i = 0; i <= n; i++) // If sum is 0, then answer is true
             t[i][0] = true;
 
         //Initialize 1st row as false, except 0(1st ele), no other sum except 0 is possible
-        for(int i = 1; i <= sum; i++) // If n is 0 , then answer is false
+        for (int i = 1; i <= sum; i++) // If n is 0 , then answer is false
             t[0][i] = false;
 
         //[Choice diagram] Fill the t table in bottom up manner
-        for(int i = 1; i <= n; i++) {
-            for(int j = 1; j <= sum; j++) {
-                if(arr[i - 1] <= j) {
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= sum; j++) {
+                if (arr[i - 1] <= j) {
                     t[i][j] = t[i - 1][j - arr[i - 1]] || t[i - 1][j];
                 } else {
                     t[i][j] = t[i - 1][j];
@@ -99,9 +96,9 @@ public class _1_1_Subset_Sum {
 //            t[0][i] = false;
 //        }
 //        //[Choice diagram] Fill the t table in bottom up manner
-//        for(int i = 1; i <= n; i++) {
-//            for(int j = 1; j <= sum; j++) {
-//                if(set[i - 1] <= j) {
+//        for (int i = 1; i <= n; i++) {
+//            for (int j = 1; j <= sum; j++) {
+//                if (set[i - 1] <= j) {
 //                    t[i % 2][j] = t[(i - 1) % 2][j - set[i - 1]] || t[(i - 1) % 2][j];
 //                } else {
 //                    t[i % 2][j] = t[(i - 1) % 2][j];
@@ -113,7 +110,7 @@ public class _1_1_Subset_Sum {
 //    }
 
     public static void main(String[] args) {
-        int[] set = {2,4,1,2};
+        int[] set = {2, 4, 1, 2};
 //        int[] set = {3, 34, 4, 12, 5, 2};
         int n = set.length, sum = 5;
 //        t = new boolean[n + 1][sum + 1];

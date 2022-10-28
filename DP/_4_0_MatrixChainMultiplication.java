@@ -35,14 +35,14 @@ public class _4_0_MatrixChainMultiplication {
     // SC : O(N) // The maximum depth of the recursive tree can reach up to O(n), where n is the length of the matrix chain.
     private static int MatrixChainMultiplication(int[] arr, int i, int j) { // if array is an empty then i = 1, j = len - 1 = 0 - 1
         // there is one matrix in a group, we don't need any multiplication steps.
-        if(i >= j)
+        if (i >= j)
             return 0;
 
         // Initializing minCost with very large value.
         int minCost = Integer.MAX_VALUE;
 
         // Iterating from i to j - 1
-        for(int k = i; k <= j - 1; k++) { // recursively calculate count of multiplications
+        for (int k = i; k <= j - 1; k++) { // recursively calculate count of multiplications
             /*
              Cost = Cost of Multiplying chain on left side +
                     Cost of Multiplying chain on right side +
@@ -63,18 +63,18 @@ public class _4_0_MatrixChainMultiplication {
     private static int[][] t;
     public static int matrixChainMultiplication(int[] arr, int i, int j) {
         // there is one matrix in a group, we don't need any multiplication steps.
-        if(i >= j)
+        if (i >= j)
             return 0;
 
         // we already have solved this sub-problem. So we will instantly return it.
-        if(t[i][j] != -1)
+        if (t[i][j] != -1)
             return t[i][j];
 
         // Initializing minCost with MAX_VALUE;
         int minCost = Integer.MAX_VALUE;
 
         // iterate from i to j - 1
-        for(int k = i; k <= j - 1; k++) {
+        for (int k = i; k <= j - 1; k++) {
             /*
              Cost = Cost of Multiplying chain on left side +
                     Cost of Multiplying chain on right side +
