@@ -10,8 +10,8 @@ package DP;
 import java.util.Arrays;
 
 public class _4_1_Palindrome_Partitioning {
+
     // Recursive    TC : O(2^n) , SC : O(h) where h is  the height of the recursion stack
-/*
     public static int minPalPartition(String s, int i, int j) {
         // base condition
         // if there is only 1 char in string, i don't need to partition becoz empty str & 1 char are already palindrome
@@ -32,7 +32,7 @@ public class _4_1_Palindrome_Partitioning {
         }
         return min;
     }
-*/
+
     public static boolean isPalindrome(String s, int i, int j) {
         while(i < j) {
             if(s.charAt(i) != s.charAt(j)) {
@@ -47,7 +47,7 @@ public class _4_1_Palindrome_Partitioning {
     public static int t[][];
 /*
     public static int minPalPartition(String s, int i, int j) {
-        // base condition
+            // base condition
         // if there is only 1 char in string, i don't need to partition becoz empty str & 1 char are already palindrome
         if (i >= j) {
             return 0;
@@ -73,6 +73,7 @@ public class _4_1_Palindrome_Partitioning {
     }
 */
     // Optimized
+/*
     public static int minPalPartition(String s, int i, int j) {
         // base condition
         // if there is only 1 char in string, i don't need to partition becoz empty str & 1 char are already palindrome
@@ -114,6 +115,7 @@ public class _4_1_Palindrome_Partitioning {
         t[i][j] = min;
         return t[i][j];
     }
+*/
 
     public static void main(String[] args) {
 //        String s = "nitin"; // 0    already palindrome

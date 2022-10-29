@@ -4,8 +4,8 @@ import java.util.Arrays;
 
 // Maximum Number of ways [Count of subset sum]
 public class _2_2_Coin_Change_Problem1 { // https://www.geeksforgeeks.org/coin-change-dp-7/
+
     // Recursion // TC: O(2^sum)
-/*
     public static int maxWays(int[] coin, int n, int sum) {
         // base condition
          // if sum is 0, there is 1 solution (do not include any coin)
@@ -23,7 +23,7 @@ public class _2_2_Coin_Change_Problem1 { // https://www.geeksforgeeks.org/coin-c
             return maxWays(coin, n - 1, sum);
         }
     }
-*/
+
 
     // Memoization [Top-down]
 /**
@@ -54,7 +54,7 @@ public class _2_2_Coin_Change_Problem1 { // https://www.geeksforgeeks.org/coin-c
 //    Using 2-D Array to store the Overlapping sub-problems.
 //    Traversing the whole array to find the solution and storing in table.
 //    find the optimal solution using table
-    public static int maxWays(int[] coins, int n, int sum) {
+    public static int maxWaysTab(int[] coins, int n, int sum) {
         int[][] t = new int[n + 1][sum + 1];
 
         // Initialize 1st col as 1, becoz sum = 0 is possible for all the ele

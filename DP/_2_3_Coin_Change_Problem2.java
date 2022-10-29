@@ -4,7 +4,6 @@ package DP;
 public class _2_3_Coin_Change_Problem2 {
 
     // Recursion
-/*
     public static int minCoins(int[] coins, int n, int sum) {
         // base condition
         if (n == 0)    // this will cover 1 corner case (0,0) , so that I write this 1st
@@ -26,11 +25,16 @@ public class _2_3_Coin_Change_Problem2 {
             return minCoins(coins, n - 1, sum);
         }
     }
-*/
+
     // Tabulation [Bottom up]
+/**
+     -> Initialize base case
+     -> choice diagram [changing parameter (reverse iteration)]
+     -> copy the recurrence
+*/
     //    Using 2-D Array to store the Overlapping sub-problems.
     //    Traversing the whole array to find the solution and storing in table.
-    public static int minCoins(int[] coins, int n, int sum) {
+    public static int minCoinsTab(int[] coins, int n, int sum) {
         int[][] t = new int[n + 1][sum + 1];
         // initialize 1st row It may possible the value of coin is 0, then res will be infinite
         for (int i = 0; i <= sum; i++)

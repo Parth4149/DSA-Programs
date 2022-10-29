@@ -7,7 +7,7 @@ public class _1_1_Subset_Sum {
     // Recursive  TC : O(2^n)   SC : O(n) for recursion(call) stack
     // Complexity Analysis: The solution may try all subsets of given set in worst case.
     // Therefore, time complexity of the above solution is exponential.
-/**
+
     public static boolean isSubsetSum(int[] arr, int n, int sum) {
         // base condition
         if (sum == 0)
@@ -24,7 +24,7 @@ public class _1_1_Subset_Sum {
             return isSubsetSum(arr, n - 1, sum);
         }
     }
-*/
+
 
 // if i check for a sum k, i can derive every possible sum between 0 and k
 
@@ -51,11 +51,16 @@ public class _1_1_Subset_Sum {
 */
 
     // Tabulation [Bottom-up]
+/**
+     -> Initialize base case
+     -> choice diagram [changing parameter (reverse iteration)]
+     -> copy the recurrence
+*/
     // Using 2-D Array to store the Overlapping sub-problems.
     // Traversing the whole array to find the solution and storing in table.
 
     // Returns true if there is a subset of arr[] with sum equal to given sum
-    public static boolean isSubsetSum(int[] arr, int n, int sum) { // tC : O(sum*n) , SC : O(sum*n)
+    public static boolean isSubsetSumTab(int[] arr, int n, int sum) { // tC : O(sum*n) , SC : O(sum*n)
         // The value of t[i][j] will be true if there is a subset of arr[0..j-1] with sum equal to i
         boolean[][] t = new boolean[n + 1][sum + 1];
 
@@ -81,34 +86,35 @@ public class _1_1_Subset_Sum {
         return t[n][sum];
     }
     // [Space optimized approach] Optimized Tabulation (Bottom up) similar to above approach
-//    public static boolean isSubsetSumOptimized(int[] set, int n, int sum) { // tC : O(n*sum) , SC : O(2*sum)
-//        // The value of t[i][j] will be true if there is a subset of set[0..j-1] with sum equal to i
-//        boolean[][] t = new boolean[2][sum + 1];
-//
-//        // base condition
-//        // If sum is 0, then answer is true
-//        for (int i = 0; i < 2; i++) {
-//            t[i][0] = true;
-//        }
-//
-//        // If sum is not 0 and set is empty, then answer is false
-//        for (int i = 1; i <= sum; i++) {
-//            t[0][i] = false;
-//        }
-//        //[Choice diagram] Fill the t table in bottom up manner
-//        for (int i = 1; i <= n; i++) {
-//            for (int j = 1; j <= sum; j++) {
-//                if (set[i - 1] <= j) {
-//                    t[i % 2][j] = t[(i - 1) % 2][j - set[i - 1]] || t[(i - 1) % 2][j];
-//                } else {
-//                    t[i % 2][j] = t[(i - 1) % 2][j];
-//                }
-//            }
-//            System.out.println(Arrays.deepToString(t));
-//        }
-//        return t[n % 2][sum];
-//    }
+/*
+    public static boolean isSubsetSumOptimized(int[] set, int n, int sum) { // tC : O(n*sum) , SC : O(2*sum)
+        // The value of t[i][j] will be true if there is a subset of set[0..j-1] with sum equal to i
+        boolean[][] t = new boolean[2][sum + 1];
 
+        // base condition
+        // If sum is 0, then answer is true
+        for (int i = 0; i < 2; i++) {
+            t[i][0] = true;
+        }
+
+        // If sum is not 0 and set is empty, then answer is false
+        for (int i = 1; i <= sum; i++) {
+            t[0][i] = false;
+        }
+        //[Choice diagram] Fill the t table in bottom up manner
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= sum; j++) {
+                if (set[i - 1] <= j) {
+                    t[i % 2][j] = t[(i - 1) % 2][j - set[i - 1]] || t[(i - 1) % 2][j];
+                } else {
+                    t[i % 2][j] = t[(i - 1) % 2][j];
+                }
+            }
+            System.out.println(Arrays.deepToString(t));
+        }
+        return t[n % 2][sum];
+    }
+*/
     public static void main(String[] args) {
         int[] set = {2, 4, 1, 2};
 //        int[] set = {3, 34, 4, 12, 5, 2};

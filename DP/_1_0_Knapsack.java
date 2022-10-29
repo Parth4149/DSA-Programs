@@ -9,7 +9,7 @@ public class _1_0_Knapsack {
     // TC : O(2^n). As there are redundant sub-problems.
     // SC :O(1) + O(N). As no extra data structure has been used for storing values but O(N) auxiliary stack space(ASS) has been
     // used for recursion stack.
-/**
+
     public static int knapsack(int[] weight, int[] value, int n, int W) {
         // base condition
         if (n == 0 || W == 0) {
@@ -24,12 +24,12 @@ public class _1_0_Knapsack {
             return knapsack(weight, value, n - 1, W);
         }
     }
-*/
+
 
     // 2nd Memoization [Top-Down]   TC : O(n*w)   SC : O(n*w)
     // we have to make Matrix of changeable values (of Input)
+/*
     static int[][] t;
-
     public static int knapsack(int[] weight, int[] value, int n, int W) {
         // base condition
         if (n == 0 || W == 0) {
@@ -51,8 +51,14 @@ public class _1_0_Knapsack {
             return t[n][W];
         }
     }
+*/
 
     // Tabulation [Bottom-up]  TC : O(n*w)   SC : O(n*w)
+/**
+    -> Initialize base case
+    -> choice diagram [changing parameter (reverse iteration)]
+    -> copy the recurrence
+*/
     // Using 2-D Array to store the Overlapping sub-problems.
     // Traversing the whole array to find the solution and storing in table.
     public static int knapsackBottomUp(int[] weight, int[] value, int W, int n) { // TC : O(n*W) , SC : O(n*W)

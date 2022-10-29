@@ -4,8 +4,10 @@ import java.util.Arrays;
 
 // Count of subset sum with a given sum
 public class _1_3_Count_Subset_Sum {
-    // Recursive
-/*
+
+    // Recursive  TC : O(2^n)   SC : O(n) for recursion(call) stack
+    // Complexity Analysis: The solution may try all subsets of given set in worst case.
+    // Therefore, time complexity of the above solution is exponential.
     public static int countSubsetSum(int[] set, int n, int sum) {
         // base condition
         if (sum == 0)
@@ -21,7 +23,7 @@ public class _1_3_Count_Subset_Sum {
             return countSubsetSum(set, n - 1, sum);
         }
     }
-*/
+
     // Memoization [Top down]
 /**
     private static int[][] t;
@@ -46,9 +48,14 @@ public class _1_3_Count_Subset_Sum {
 */
 
     // Tabulation [Bottom-up]
+/**
+     -> Initialize base case
+     -> choice diagram [changing parameter (reverse iteration)]
+     -> copy the recurrence
+*/
 //    Using 2-D Array to store the Overlapping sub-problems.
 //    Traversing the whole array to find the solution and storing in table.
-    public static int countSubsetSum(int[] arr, int n, int sum) {
+    public static int countSubsetSumTab(int[] arr, int n, int sum) {
         // initialize table t (2d array)
         int[][] t = new int[n + 1][sum + 1];
 

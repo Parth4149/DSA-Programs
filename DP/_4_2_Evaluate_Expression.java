@@ -8,9 +8,7 @@ import java.util.Arrays;
 // and false and operators like &, | and ^ filled between symbols
 public class _4_2_Evaluate_Expression {
 /*
-    // Recursion
-    TC : O(n3), as we are using a loop to traverse, n times, and we are making recursive calls which will cost n2 times.
-        Where n is the length of the symbols string.
+    // Recursion    TC : O(2^n),  SC : O(h) where h is  the height of the recursion stack
 */
 /*
     public static int evaluateExpression(String exp) {

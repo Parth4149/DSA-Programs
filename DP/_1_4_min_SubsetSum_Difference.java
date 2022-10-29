@@ -6,7 +6,7 @@ import java.util.Arrays;
 // (Partition a set into two subsets such that the difference of subset sums is minimum)
 public class _1_4_min_SubsetSum_Difference {
     // Recursion  // TC : O(2^n) , SC : O(n),  which is used to store the recursion stack
-/*
+
     public static int minDifference(int[] arr, int totalSum, int n, int calculatedSum) { // TC : O(2^n) , SC : theta(n) for rec stack
         // If we have reached last element. Sum of one subset is calculatedSum,
         // sum of other subset is totalSum calculatedSum.
@@ -29,7 +29,7 @@ public class _1_4_min_SubsetSum_Difference {
         }
         return minDifference(arr, sumTotal, n, 0);
     }
-*/
+
 
     // Memoization (Top down)
 /*
@@ -65,7 +65,7 @@ public class _1_4_min_SubsetSum_Difference {
 */
 
     // Tabulation [Bottom up]
-    public static int minDifference(int[] arr, int n) { // TC : O(2^n) , SC : O(n*k) , k = sum of all the elements
+    public static int minDifferenceTab(int[] arr, int n) { // TC : O(2^n) , SC : O(n*k) , k = sum of all the elements
         int totalSum = 0;
         for (int i : arr) {
             totalSum += i;

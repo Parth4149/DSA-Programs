@@ -6,7 +6,6 @@ import java.util.HashMap;
 public class _3_0_LCS {
 
     // Recursion        TC : 2^(m+n)
-/**
     public static int lcs(String X, String Y, int m, int n) {
         // base condition
         if (m == 0 || n == 0) {
@@ -21,7 +20,7 @@ public class _3_0_LCS {
             return Math.max(lcs(X, Y, m, n - 1), lcs(X, Y, m - 1, n)); // return max res of 2 sub-problems
         }
     }
-*/
+
 
     // Memoization [Top-down]       TC : O(m*n)   Sc : O(m*n)
 /*
@@ -46,10 +45,15 @@ public class _3_0_LCS {
 */
 
     // Tabulation [Bottom-up]       TC : O(m*n)   Sc : O(m*n)
+/**
+     -> Initialize base case
+     -> choice diagram [changing parameter (reverse iteration)]
+     -> copy the recurrence
+*/
 //    Using 2-D Array to store the Overlapping sub-problems.
 //    Traversing the whole array to find the solution and storing in table.
 
-    public static int lcs(String X, String Y, int m, int n) {
+    public static int lcsTab(String X, String Y, int m, int n) {
         int[][] t = new int[m + 1][n + 1];
 
         // Initialize 1st row as 0, m = 0 is possible for all eles

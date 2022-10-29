@@ -92,6 +92,11 @@ public class _4_0_MatrixChainMultiplication {
     }
 
     // Bottom up Tabulation
+/**
+     -> Initialize base case
+     -> choice diagram [changing parameter (reverse iteration)]
+     -> copy the recurrence
+*/
     /*
     For sub-problem with gap 0 (single matrix), no multiplication is required so the answer will be 0.
     For sub-problem with gap 1 (two matrices i.e. A and B) we don't have any choice other than multiplying them directly.
