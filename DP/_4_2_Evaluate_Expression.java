@@ -10,7 +10,7 @@ public class _4_2_Evaluate_Expression {
 /*
     // Recursion    TC : O(2^n),  SC : O(h) where h is  the height of the recursion stack
 */
-/*
+
     public static int evaluateExpression(String exp) {
         int i = 0, j = exp.length() - 1;
         return countParenthesis(exp, i, j, 1);
@@ -28,7 +28,7 @@ public class _4_2_Evaluate_Expression {
                 return (str.charAt(i) == 'F') ? 1 : 0;
         }
 
-        // iterate k = i+1 to j-1
+        // iterate from k = i+1 to j-1
         int temp_ans = 0;
         int leftTrue, leftFalse, rightTrue, rightFalse;
 
@@ -79,13 +79,13 @@ public class _4_2_Evaluate_Expression {
         }
         return temp_ans;
     }
-*/
-    /*
-         Top-down Memoization
-         TC : O(n^3), as we are using a loop to traverse, n times, and we are making recursive calls which will cost n2 times.
-               Where n is the length of the symbols string.
-         SC: O(n^2), as we are using extra space for the DP matrix. Where n is the length of the symbols string.
-    */
+
+/*
+//  Top-down Memoization
+//  TC : O(n^3), as we are using a loop to traverse, n times, and we are making recursive calls which will cost n2 times.
+//  Where n is the length of the symbols string.
+//  SC: O(n^2), as we are using extra space for the DP matrix. Where n is the length of the symbols string.
+
     public static int evaluateExpression(String str) {
         int n = str.length();
         int i = 0, j = n - 1;
@@ -166,7 +166,7 @@ public class _4_2_Evaluate_Expression {
         }
         return temp_ans;
     }
-
+*/
     // Optimized
 /*
     public static int parenthesis_count(String str, int i, int j, int isTrue, int[][][] dp){

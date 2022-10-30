@@ -97,13 +97,41 @@ public class _4_0_MatrixChainMultiplication {
      -> choice diagram [changing parameter (reverse iteration)]
      -> copy the recurrence
 */
-    /*
-    For sub-problem with gap 0 (single matrix), no multiplication is required so the answer will be 0.
-    For sub-problem with gap 1 (two matrices i.e. A and B) we don't have any choice other than multiplying them directly.
-    For sub-problems with gap ≥ 2 we need to find the minimum by placing the brackets at all the possible places.
-    */
     // TC : O(n^3) We are using three nested for loops, each of which is iterating roughly O(n)O(n) times
     // SC : O(n^2)
+    public static int matrixChainMultiplicationTab(int[] arr) {
+        //
+        int n = arr.length;
+        int[][] dp = new int[n][n];
+        Arrays.stream(t).forEach(a -> Arrays.fill(a, -1));
+
+        for (int i = n - 1; i >= 1; i--) {
+            for (int j = 0; j < n; j++) {
+
+                // base condition
+                if (i >= j) {
+                    t[i][j] = 0;
+                    continue;
+                }
+
+                // this is recurrence copy from recursion
+                int minCost = Integer.MAX_VALUE;
+
+                // iterate from i to j - 1
+                for (int k = i; k <= j - 1; k++) {
+                    int cost = t[i][k] + t[k + 1][j] + arr[i - 1] * arr[k] * arr[j];
+
+                    minCost = Math.min(minCost, cost);
+                }
+                t[i][j] = minCost;
+
+            }
+        }
+        System.out.println(Arrays.deepToString(t));
+        return t[1][n - 1]; //
+    }
+// in recursion, we pass i = 1 and j = n-1 as an argument -> ans will come i = 1 and j = n-1
+// in tabulation, the index i starts from n-1 & j = 0 because our answer will come at i = 1 & j = n-1 (reverse iteration)
 
     public static void main(String[] args){
         // This matrix chain of length 5 represents 4 matrices of dimensions as follows 2*4, 4*6, 6*8, and 8*6.
@@ -112,10 +140,12 @@ public class _4_0_MatrixChainMultiplication {
         int n = arr.length;
 //        int result = MatrixChainMultiplication(arr, 1, n  - 1);
 
-        t = new int[n][n];
-        //  initialize all the cells(elements) -1
-        Arrays.stream(t).forEach(a -> Arrays.fill(a, -1));
-        int result = matrixChainMultiplication(arr, 1, n - 1);
+//        t = new int[n][n];
+//        //  initialize all the cells(elements) -1
+//        Arrays.stream(t).forEach(a -> Arrays.fill(a, -1));
+//        int result = matrixChainMultiplication(arr, 1, n - 1);
+        int result = matrixChainMultiplicationTab(arr);
+
 
         System.out.println("Minimum number of steps are : " + result);
     }
