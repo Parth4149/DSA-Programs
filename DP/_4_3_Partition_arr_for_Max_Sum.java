@@ -5,11 +5,12 @@ import java.util.Arrays;
 //  Partition Array for Maximum Sum
 // https://leetcode.com/problems/partition-array-for-maximum-sum/discuss/1028098/Java-Recursive-to-Memoization-to-DP
 public class _4_3_Partition_arr_for_Max_Sum {
-/*
+/**
      Rule to write recurrence
     -> express everything in index
     -> try every possible partition for that index
     -> take the best partition
+    -> base case
 */
 
     // Recursion  TC :

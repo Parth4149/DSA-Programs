@@ -30,6 +30,14 @@ import java.util.Arrays;
 // Minimum number of multiplication
 // https://www.scaler.com/topics/matrix-chain-multiplication
 public class _4_0_MatrixChainMultiplication {
+    /**
+     Rule to write recurrence
+     -> express everything in terms of index
+     -> try every possible partition for that index
+     -> take the best partition
+     -> base case
+     */
+
     // Naive Recursion
     // TC : O(2^n)
     // SC : O(N) // The maximum depth of the recursive tree can reach up to O(n), where n is the length of the matrix chain.

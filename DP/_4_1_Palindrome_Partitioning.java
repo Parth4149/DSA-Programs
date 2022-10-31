@@ -10,6 +10,13 @@ package DP;
 import java.util.Arrays;
 
 public class _4_1_Palindrome_Partitioning {
+    /**
+     Rule to write recurrence
+     -> express everything in index
+     -> try every possible partition for that index
+     -> take the best partition
+     -> base case
+     */
 
     // Recursive    TC : O(2^n) , SC : O(h) where h is  the height of the recursion stack
     public static int minPalPartition(String s, int i, int j) {

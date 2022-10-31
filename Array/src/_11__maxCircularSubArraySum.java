@@ -55,7 +55,6 @@ public class _11__maxCircularSubArraySum {
 
         // finding min sum subArray
         int k = kadane(arr); //  it returns answer which is min subArray because we are inverted the array
-
         //  max circular sum
         int res = total + k;
 
