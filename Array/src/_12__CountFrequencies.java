@@ -4,7 +4,7 @@ import java.util.HashSet;
 // Java program to print frequencies of all array
 // elements in O(1) extra space and O(n) time
 public class _12__CountFrequencies {
-/**
+/*
  * Time Complexity: O(n).
    As a single traversal of array takes O(n) time.
  * Space Complexity: O(n).
@@ -24,14 +24,14 @@ public class _12__CountFrequencies {
             System.out.println((i + 1) + " -> " + hash[i]);
         }
     }
-    */
+*/
 
     // Function to find counts of all elements present in arr[0..n-1]. The array elements must be range from 1 to n
     public static void findCounts(int[] arr, int n) {     // Time : theta(n)  // As a single traversal of the array takes O(n) time.
         int i = 0;                                        // Space : theta(1)  // Since no extra space is needed.
-        while(i < n){   // Traverse the array
+        while (i < n) {   // Traverse the array
             // If this element is already processed,then nothing to do
-            if(arr[i] <= 0) {
+            if (arr[i] <= 0) {
                 i++;
                 continue;  // this is important, if we  write continue then following statement won't be executed
             }
@@ -40,13 +40,12 @@ public class _12__CountFrequencies {
             int elementIndex = arr[i] - 1;
 
             //first store that element to arr[i]  so that we don't lose anything. and make element -1  means it occurs first time
-            if(arr[elementIndex] > 0){
+            if (arr[elementIndex] > 0) {
                 arr[i] = arr[elementIndex];
 
                 //After storing arr[elementIndex], change it to -1' initial count (if it will come again, else statement will execute)
                 arr[elementIndex] = -1;
-            }
-            else{
+            } else {
                 // If this is NOT first occurrence, then decrement its count. (means it increased the count it is negative
                 arr[elementIndex]--;                // then make it positive therefore we get count) e.g. make -2 to 2
 
@@ -57,8 +56,8 @@ public class _12__CountFrequencies {
         }
 
         System.out.println("Below are counts of all elements");
-        for (int j = 0; j < n; j++){
-            System.out.println(j+1 + "->" + Math.abs(arr[j]));  // make elements positive
+        for (int j = 0; j < n; j++) {
+            System.out.println(j + 1 + "->" + Math.abs(arr[j]));  // make elements positive
         }
     }
 
@@ -67,9 +66,9 @@ public class _12__CountFrequencies {
         int i = 0;
         int[] res = new int[arr.length];
         // sort an array using cycle sort
-        while(i < arr.length) {
+        while (i < arr.length) {
             int correct = arr[i] - 1;
-            if(arr[i] != arr[correct]) {
+            if (arr[i] != arr[correct]) {
                 swap(arr, i, correct);
             } else {
                 i++;
@@ -77,23 +76,23 @@ public class _12__CountFrequencies {
         }
 
         // check if ele are place at its correct position , then make it -1 (we count frequency negatively)
-        for(i = 0; i < arr.length; i++) {
-            if((i + 1) == arr[i]) {
+        for (i = 0; i < arr.length; i++) {
+            if ((i + 1) == arr[i]) {
                 arr[i] = -1;
             }
         }
 
         // count the duplicate numbers
-        for(i = 0; i < arr.length; i++) {
-            if(arr[i] > 0) {
+        for (i = 0; i < arr.length; i++) {
+            if (arr[i] > 0) {
                 int correct = arr[i] - 1;
                 arr[correct] = arr[correct] - 1;
             }
         }
 
         // store answer into arr res
-        for(i = 0; i < arr.length; i++) {
-            if(arr[i] < 0) {
+        for (i = 0; i < arr.length; i++) {
+            if (arr[i] < 0) {
                 res[i] = Math.abs(arr[i]);
             } else {
                 res[i] = 0;
