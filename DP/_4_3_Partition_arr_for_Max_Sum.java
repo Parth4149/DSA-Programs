@@ -64,7 +64,8 @@ public class _4_3_Partition_arr_for_Max_Sum {
         return dp[i];
     }
 */
-/*
+
+/**
     // Tabulation
     -> base case dp[n] = 0
     -> index = n-1 to 0  (changing parameter) reverse
