@@ -1,10 +1,11 @@
 package DP;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 // Longest Increasing Subsequence
 // The task is to find the longest, strictly increasing, subsequence in array
-public class _5_1_LIS {
+public class _5_1_0_LIS {
     // Broth Force   TC : O(n^2) , this approach not give all possible subsequences
 /*
     public static int lis(int[] arr) {
@@ -74,15 +75,15 @@ public class _5_1_LIS {
 */
 
 /**
-     // Tabulation
+     // Bottom-up Tabulation
      -> base case dp[n] = 0
      -> (changing parameter) reverse     ind = n-1 to 0 , prev_ind = ind - 1 to -1
      -> copy the recurrence
         & make sure follow the coordinate shift
 */
-    public static int lisTab(int[] arr) {
+    public static int lisTab(int[] arr) {    // TC : O(n^2) , SC : O(n^2)
         int n = arr.length;
-        int[][] dp = new int[n + 1][n + 1];
+        int[][] dp = new int[n + 1][n + 1]; // by default all the eles are 0
 
         for (int i = n - 1; i >= 0; i--) {
             for (int prev_ind = i; prev_ind >= -1; prev_ind--) {
@@ -121,5 +122,14 @@ public class _5_1_LIS {
         int[] arr = {10,9,2,5,3,7,101,18};
         int ans = lisTab(arr);
         System.out.println(ans);
+    }
+
+    public static void printMatrix (int[][] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            for (int j : arr[i]) {
+                System.out.printf("%3d ",j);
+            }
+            System.out.println();
+        }
     }
 }
