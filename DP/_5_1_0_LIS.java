@@ -5,6 +5,7 @@ import java.util.Arrays;
 
 // Longest Increasing Subsequence
 // The task is to find the longest, strictly increasing, subsequence in array
+// file:///E:/DSA/9%20Grokking%20Dynamic%20Programming%20Patterns%20for%20Coding%20Interviews%20-%20Learn%20Interactively/27_Longest_Increasing_Subsequence.mhtml
 public class _5_1_0_LIS {
     // Broth Force   TC : O(n^2) , this approach not give all possible subsequences
 /*
@@ -99,7 +100,7 @@ public class _5_1_0_LIS {
         return dp[0][-1 + 1]; // dp[0][0]
     }
 
-    // Optimized TC : O(n^2) , SC : O(n)
+    // Optimized approach TC : O(n^2) , SC : O(n)
 /*
     public static int lisTabOptimized(int[] arr) {
         int n = arr.length;
@@ -118,8 +119,30 @@ public class _5_1_0_LIS {
         return dp[0][-1 + 1]; // dp[0][0]
     }
 */
+
+    // Another Optimized approach
+    public static int lisTab2(int[] arr) { // TC : O(n^2) , SC : O(n)
+        int n = arr.length;
+        int[] dp = new int[n];
+        int maxLength = 1;
+
+        /* Initialize LIS values for all indexes */
+        Arrays.fill(dp, 1);
+
+        for (int i = 1; i < n; i++) { // 1 to n
+            for (int prev = 0; prev < i; prev++) { // 0 to i-1
+                if (arr[i] > arr[prev] && dp[i] <= dp[prev]) {
+                    dp[i] = 1 + dp[prev];
+                }
+            }
+            maxLength = Math.max(maxLength, dp[i]);
+        }
+        return maxLength;
+    }
+
     public static void main(String[] args) {
-        int[] arr = {10,9,2,5,3,7,101,18};
+//        int[] arr = {10, 9, 2, 5, 3, 7, 101, 18}; // 4
+        int[] arr = {-4, 10, 3, 7, 15}; // 4
         int ans = lisTab(arr);
         System.out.println(ans);
     }

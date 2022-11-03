@@ -20,6 +20,7 @@ public class _5_2_Largest_Divisible_Subset {
             return largestDivisibleSubset(arr, i + 1, prev_ind);
         }
     }
+// prev_ind = -1 means,  there is no any ele include so far
 
 /**
      // Bottom-up Tabulation
@@ -34,7 +35,7 @@ public class _5_2_Largest_Divisible_Subset {
         ArrayList<Integer> list = new ArrayList<>();
 
         for (int i = n - 1; i >= 0; i--) {
-            for (int prev_ind = i - 1; prev_ind >= -1; prev_ind--) { // // by default all the eles are 0
+            for (int prev_ind = i - 1; prev_ind >= -1; prev_ind--) { // by default all the eles are 0
                 // copy the recurrence & follow coordinate shift (I add 1 in prev_ind to avoid exception)
                 if (prev_ind == -1 || arr[i] % arr[prev_ind] == 0 || arr[prev_ind] % arr[i] == 0) { //Only this If condition is changed
                     dp[i][prev_ind + 1] = Math.max(1 + dp[i + 1][i + 1] , dp[i + 1][prev_ind + 1]);

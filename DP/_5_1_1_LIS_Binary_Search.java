@@ -1,28 +1,29 @@
 package DP;
 
-import java.util.ArrayList;
-
 // Longest Increasing Subsequence | Binary Search
-public class _5_1_1 {
-
+public class _5_1_1_LIS_Binary_Search {
+/*
+    (1) if x is larger than all tails, append it, increase the size by 1
+    (2) if tails[i-1] < x <= tails[i], update tails[i]
+*/
     public static int longestIncreasingSubsequence(int[] arr) { // TC : O(n * logn) , SC : O(n)
-        ArrayList<Integer> list = new ArrayList<>();
-        int len = 1;
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] > list.get(list.size() - 1)) {
-                list.add(arr[i]);
-                len++;
+        int[] tails = new int[arr.length];
+        tails[0] = arr[0]; // set 1st ele
+        int size = 1;
+        // iterating array from 2nd ele
+        for (int i = 1; i < arr.length; i++) { // arr[i] = x
+            if (arr[i] > tails[size - 1]) {
+                tails[size++] = arr[i];
             } else {
-                int ind = lower_bound(arr, arr[i]); // here we need to pass list
-                list.set(ind, arr[i]);
+                int ind = lower_bound(tails, arr[i], 0, size - 1);
+                tails[ind] = arr[i];
             }
         }
-        return len;
+        return size;
     }
 
     // lower bound return index of 1st occurrence of target if target exist, otherwise next smallest no which is >= target
-    public static int lower_bound(int[] arr, int target) {
-        int left = 0, right = arr.length - 1;
+    public static int lower_bound(int[] arr, int target, int left, int right) {
         while(left <= right) {
             int mid = left + (right - left) / 2;
             if(target < arr[mid]) {
@@ -43,9 +44,9 @@ public class _5_1_1 {
     }
 
     public static void main(String[] args) {
-//        int[] arr = {10,20,30,30,40,50};
-//        int[] arr = {10,20,30,40,50};
-        int[] arr = {1,4,5,4,28};
+        int[] arr = {10,9,2,5,3,7,101,18}; // 4
+//        int[] arr = {0,1,0,3,2,3}; // 4
+//        int[] arr = {7,7,7,7,7,7,7}; // 1
         int ans = longestIncreasingSubsequence(arr);
         System.out.println(ans);
     }

@@ -18,7 +18,7 @@ public class _9___MaximumSubArray {
      * Application
      * Finding maximum subarray sum
      * Used as an image processing algorithm.
-     * It can be used to solve the problems like “Station Travel in Order” and “Hotels Along the Coast”
+     * It can be used to solve the problems like "Station Travel in Order" and "Hotels Along the Coast"
      * It is used for business analysis.
      * (maximum growth or minimum growth duration of time with which helps company to find what they did good or bad during
      * those periods to repeat or prevent them in future for benefit of company.)

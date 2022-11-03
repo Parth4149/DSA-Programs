@@ -1,6 +1,7 @@
 import java.util.Arrays;
 
 public class _8__TrappingRainWater {
+    // https://takeuforward.org/data-structure/trapping-rainwater/
     public static int trappingRainWater(int[] height) {// time : theta(n) , space : theta(n)
         int res = 0, n = height.length;
         int[] leftMax = new int[height.length];
@@ -28,21 +29,21 @@ public class _8__TrappingRainWater {
         return res;
     }
 
-    /**
-     * // 5, 0, 6, 2, 3  arr
-     * <p>
-     * // 5, 5, 6, 6, 6  leftMax first loop
-     * // 6, 6, 6, 3, 3  rightMax  second loop
-     * <p>
-     * // 5, 5, 6, 3, 3  min of left and right
-     * //    5, 0, 1     = 6  diff between min and arr
-     */
+/**
+     // 5, 0, 6, 2, 3  arr
+
+     // 5, 5, 6, 6, 6  leftMax first loop
+     // 6, 6, 6, 3, 3  rightMax  second loop
+
+     // 5, 5, 6, 3, 3  min of left and right
+     //    5, 0, 1     = 6  diff between min and arr
+*/
     public static void main(String[] args) {
 //        int[] arr={5,0,6,2,3};
         int[] arr = {4, 2, 0, 3, 2, 5};
 //        int[] arr={3,0,1,2,5};
 //        int[] arr={1,2,3,4,5};
 //        int[] arr={5,4,3,2,1};
-        System.out.println(trappingRainWater(arr));//6
+        System.out.println(trappingRainWater(arr)); // 6
     }
 }
