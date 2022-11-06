@@ -53,7 +53,7 @@ public class _3_7_Longest_Repeating_Subsequence {   // Similar to LCS
     }
 
     public static void main(String[] args) {
-        String s = "AABEBCDD";
+        String s = "AABEBCDD"; // 3  ABD
         int result = longestRepeatingSubsequence2(s);
         System.out.println(result);
     }

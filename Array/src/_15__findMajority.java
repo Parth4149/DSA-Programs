@@ -1,35 +1,34 @@
 public class _15__findMajority {
 /*
     // Basic approach
-    public static int findMajority(int[] arr){ // TC : O(n^2)
-        for(int i = 0; i <= arr.length / 2; i++){
+    public static int findMajority(int[] arr) { // TC : O(n^2)
+        for (int i = 0; i <= arr.length / 2; i++) {
             int count = 1;
-            for(int j = i + 1; j < arr.length; j++){
-                if(arr[i] == arr[j]){
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[i] == arr[j]){
                     count++;
                 }
             }
-            if(count > arr.length / 2){
+            if (count > arr.length / 2) {
                 return i;
             }
         }
         return -1;
-
     }
 
     // Hash Table
-    public static int findMajority(int[] arr){ // TC : O(n) , SC : O(n)
+    public static int findMajority(int[] arr) { // TC : O(n) , SC : O(n)
         HashMap<Integer,Integer> m = new HashMap<>();
                 // here value indicate how many times the key appear in the array
-        for(int i = 0; i < arr.length; i++){
-            if(!m.containsKey(arr[i])){
+        for (int i = 0; i < arr.length; i++) {
+            if(!m.containsKey(arr[i])) {
                 m.put(arr[i], 0);
             }
             m.put(arr[i], m.get(arr[i]) + 1);
         }
 
-        for(int i = 0; i < arr.length; i++){
-            if(m.get(arr[i]) > (arr.length / 2)){
+        for (int i = 0; i < arr.length; i++) {
+            if (m.get(arr[i]) > (arr.length / 2)) {
                 return i;
             }
         }
@@ -39,14 +38,14 @@ public class _15__findMajority {
     // Sorting
     public static int findMajority(int[] arr){ // TC : insertion sort
         Arrays.sort(arr);
-        for(int i = 1; i < arr.length; i++){
+        for(int i = 1; i < arr.length; i++) {
             int count = 1;
-            if(arr[i - 1] == arr[i]){
+            if(arr[i - 1] == arr[i]) {
                 while(i < arr.length && arr[i - 1] == arr[i]){
                     i++;
                     count++;
                 }
-                if(count > arr.length / 2){
+                if(count > arr.length / 2) {
                     return (i - 1); // we need to return any index of majority element , count should be more than n/2
                 }
             }

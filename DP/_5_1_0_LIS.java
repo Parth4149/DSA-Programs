@@ -141,12 +141,37 @@ public class _5_1_0_LIS {
     }
 
     public static void main(String[] args) {
-//        int[] arr = {10, 9, 2, 5, 3, 7, 101, 18}; // 4
-        int[] arr = {-4, 10, 3, 7, 15}; // 4
-        int ans = lisTab(arr);
+//        int[] arr = {10, 9, 2, 5, 3, 7, 101, 18}; // 4  , [1, 1, 1, 2, 2, 3, 4, 4]
+        int[] arr = {-4, 10, 3, 7, 15}; // 4  , [1, 2, 2, 3, 4]
+        int ans = lisTab2(arr);
+        printLIS(arr);
         System.out.println(ans);
     }
 
+    public static void printLIS(int[] arr) { // TC : O(n^2) , SC : O(n)
+        int n = arr.length;
+        int[] dp = new int[n];
+        int maxLength = 1;
+
+        /* Initialize LIS values for all indexes */
+        Arrays.fill(dp, 1);
+
+//        ArrayList<Integer> list = new ArrayList<>();
+        int[] ans = new int[n];
+        for (int i = 1; i < n; i++) { // 1 to n
+            for (int prev = 0; prev < i; prev++) { // 0 to i-1
+                if (arr[i] > arr[prev] && dp[i] <= dp[prev]) {
+                    dp[i] = 1 + dp[prev];
+                }
+            }
+            maxLength = Math.max(maxLength, dp[i]);
+        }
+
+        for (int i = 0; i < n; i++) {
+            ans[dp[i] - 1] = arr[i];
+        }
+        System.out.println(Arrays.toString(ans));
+    }
     public static void printMatrix (int[][] arr) {
         for (int i = 0; i < arr.length; i++) {
             for (int j : arr[i]) {

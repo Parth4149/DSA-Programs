@@ -54,7 +54,7 @@ public class _11__maxCircularSubArraySum {
         }
 
         // finding min sum subArray
-        int k = kadane(arr); //  it returns answer which is min subArray because we are inverted the array
+        int k = kadane(arr); //  ans come in opposite sign (if min sum is -6 in original arr, ans comes 6)
         //  max circular sum
         int res = total + k;
 
@@ -67,10 +67,10 @@ public class _11__maxCircularSubArraySum {
     }
 
     public static void main(String[] args) {
-//        int[] arr = {5,-2,3,4};//12 (10,12)
-//        int[] arr = {3,-4,5,6,-8,7}; //17 (11,17)
-        int[] arr = {8, -4, 3, -5, 4};//12 (8,12)   (kadane, reverseKadane)
-//        int[] arr = {-8,-4, 2, 5,-4}; //7 (7,3)
+//        int[] arr = {5,-2,3,4};// 12 (10,12)
+//        int[] arr = {3,-4,5,6,-8,7}; // 17 (11,17)
+        int[] arr = {8, -4, 3, -5, 4};// 12 (8,12)   (kadane, reverseKadane)
+//        int[] arr = {-8,-4, 2, 5,-4}; // 7 (7,3)
 //      if maxSum is in circular array, then we use reverseKadane otherwise we use kadane therefore we return max(kadane,reverseKadane)
         System.out.println(maxCircularSubArraySum(arr));
     }

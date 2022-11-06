@@ -1,4 +1,4 @@
-public class _10___maxEvenOddSubArray {
+public class _10__maxOddEvenSubArray {
     /*
     public static int maxEvenOddSubArray(int[] nums){// time : O(n^2)
         int res = 0;
@@ -42,13 +42,14 @@ public class _10___maxEvenOddSubArray {
         }
         return res;
     }
-     */
-    public static int maxEvenOddSubArray(int[] nums) {   // time : O(n)  // similar to previous approach
+*/
+    public static int maxOddEvenSubArray(int[] nums) {   // time : O(n)  // Kadane's Algorithm
         int res = 0, length = 0;
         // here we check first number is even or odd
         int count = nums[0] % 2;    // count is act as a mutex[OS], like producer-consumer problem
 
         for (int i = 0; i < nums.length; i++) {
+            // here i have 2 choices, i extend subArray or start a new subArray
             if ((count == 1 && (nums[i] % 2) == 1) || (count == 0 && (nums[i] % 2) == 0)) {// here count = 1 so (num % 2) should be 1
                 length++;
                 res = Math.max(res, length);
@@ -66,6 +67,6 @@ public class _10___maxEvenOddSubArray {
 //        int[] arr={5,10,12,6,3,8};// (6,3,8) = 3
 //        int[] arr={7,10,13,14};// (7,10,13,14) = 4
 //        int[] arr={10,12,8,4};// (10) = 1
-        System.out.println(maxEvenOddSubArray(arr));
+        System.out.println(maxOddEvenSubArray(arr));
     }
 }
