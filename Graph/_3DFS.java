@@ -1,4 +1,4 @@
-package Program_and_Project;
+package Graph;
 import java.util.ArrayList;
 /*
 * DFS is more suitable when there are solutions away from source

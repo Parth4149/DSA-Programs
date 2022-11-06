@@ -160,14 +160,14 @@ public class _5_1_0_LIS {
         int[] ans = new int[n];
         for (int i = 1; i < n; i++) { // 1 to n
             for (int prev = 0; prev < i; prev++) { // 0 to i-1
-                if (arr[i] > arr[prev] && dp[i] <= dp[prev]) {
+                if (arr[i] > arr[prev] && dp[prev] >= dp[i]) {
                     dp[i] = 1 + dp[prev];
                 }
             }
             maxLength = Math.max(maxLength, dp[i]);
         }
 
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < n; i++) { // if there are multiple equal len, consider last len in array dp
             ans[dp[i] - 1] = arr[i];
         }
         System.out.println(Arrays.toString(ans));

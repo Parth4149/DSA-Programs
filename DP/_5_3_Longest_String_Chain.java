@@ -19,11 +19,7 @@ public class _5_3_Longest_String_Chain {
                 first++;
             }
         }
-        if (first == s1.length() && second == s2.length()) {
-            return true;
-        } else {
-            return false;
-        }
+        return (first == s1.length() && second == s2.length());
     }
 
     public static int longestStrChain(String[] arr) {
@@ -32,7 +28,7 @@ public class _5_3_Longest_String_Chain {
 
         int n = arr.length;
         int[] dp = new int[n + 1];
-        int maxi = 1;
+        int maxLength = 1;
 
         /* Initialize LIS values for all indexes */
         Arrays.fill(dp, 1);
@@ -45,12 +41,12 @@ public class _5_3_Longest_String_Chain {
                     dp[i] = 1 + dp[prev];
                 }
             }
-//            if (dp[i] > maxi) {
-//                maxi = dp[i];
+//            if (dp[i] > maxLength) {
+//                maxLength = dp[i];
 //            }
-            maxi = Math.max(maxi, dp[i]);
+            maxLength = Math.max(maxLength, dp[i]);
         }
-        return maxi;
+        return maxLength;
     }
     public static void main(String[] args) {
 //        String[] arr = {"a","b","ba","bca","bda","bdca"}; // 4  longest word chain is "a","ba","bda","bdca".
