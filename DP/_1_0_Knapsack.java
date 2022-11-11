@@ -19,7 +19,8 @@ public class _1_0_Knapsack {
         // choice diagram
         if (weight[n - 1] <= W) {
             // 2 choices whether i add into knapsack or not
-            return Math.max((value[n - 1] + knapsack(weight, value, n - 1, W - weight[n - 1])), knapsack(weight, value, n - 1, W));
+            return Math.max((value[n - 1] + knapsack(weight, value, n - 1, W - weight[n - 1])),
+                    knapsack(weight, value, n - 1, W));
         } else {
             return knapsack(weight, value, n - 1, W);
         }
@@ -61,9 +62,9 @@ public class _1_0_Knapsack {
 */
     // Using 2-D Array to store the Overlapping sub-problems.
     // Traversing the whole array to find the solution and storing in table.
-    public static int knapsackBottomUp(int[] weight, int[] value, int W, int n) { // TC : O(n*W) , SC : O(n*W)
+    public static int knapsackBottomUp(int[] weight, int[] value, int n, int W) { // TC : O(n*W) , SC : O(n*W)
         // by default all the ele of arrays are 0. so we don't need to initialize 1st row * col
-        //[1] Recursion fun Base Condition --> Top-Down Initialisation
+        // [1] Recursion fun Base Condition --> Top-Down Initialisation
 
         int[][] t = new int[n + 1][W + 1];
         //[2] Choice Diagram --> Iterative(loop)
