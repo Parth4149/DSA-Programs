@@ -5,12 +5,12 @@ import java.util.LinkedList;
 import java.util.Queue;
 /*
  * BFS is slower than DFS
- * BFS is more suitable for searching vertices which are closer to the given source
+ * BFS is more suitable for searching vertices which are closer to the given source ,BFS is optimal for finding the shortest path.
  * BFS considers all neighbors first and therefore not suitable for decision-making trees used in games or puzzles
  * Time complexity : O(V+E),   adjacency list :O(V^2) ,  where V stands for vertices and E stands for edges
  * here, siblings are visited before the children
  * Applications : Bipartite graph, Shortest path etc.
- * DFS require more memory
+ * BFS require more memory
  * */
 
 class GraphBFS {

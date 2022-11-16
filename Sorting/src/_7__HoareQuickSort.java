@@ -1,6 +1,6 @@
 import java.util.Arrays;
 public class _7__HoareQuickSort {   // Hoare's Partition  (two pointer approach)
-    /**
+/**
      * Quick sort algorithm
      * In-place
      * cache friendly
@@ -52,32 +52,29 @@ public class _7__HoareQuickSort {   // Hoare's Partition  (two pointer approach)
         int pivot = arr[l];
         int i = l, j = r;
         // iterate the array
-        while(true) {
-            while(arr[i] < pivot) {
+        while (true) {
+            while (arr[i] < pivot) {
                 i++;
             }
 
-            while(arr[j] > pivot) {
+            while (arr[j] > pivot) {
                 j--;
             }
-            if(i >= j) {
-//                System.out.println(i+" "+j);
+            if (i >= j) {
                 return j;               // return index of left subArray
             }
             swap(arr,i, j);
         }
     }
     // time : theta(n^2) worst case ,  average case : theta(nlogn)
-    public static void quickSort(int[] arr, int l, int r){
-        if(l < r) {
+    public static void quickSort(int[] arr, int l, int r) {
+        if (l < r) {
             int p = hPartition(arr, l, r); // it returns index of prev ele of pivot , smaller element moves left side and greater right side
             quickSort(arr, l, p);
             quickSort(arr,p + 1, r);
         }
     }
-//    public static int hPartition2(int[] arr, int l, int r) {
-//
-//    }
+
     private static void swap(int[] arr, int a, int b) {
         int temp = arr[a];
         arr[a] = arr[b];
@@ -93,6 +90,5 @@ public class _7__HoareQuickSort {   // Hoare's Partition  (two pointer approach)
 //        hPartition(arr, 0, arr.length - 1);
         quickSort(arr,0,arr.length - 1);
         System.out.println(Arrays.toString(arr));
-
     }
 }
