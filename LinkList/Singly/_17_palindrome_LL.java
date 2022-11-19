@@ -46,9 +46,9 @@ public class _17_palindrome_LL {
         if (head == null || head.next == null) {
             return true;
         }
-        ListNode slow = head, fast = head;
+        ListNode slow = head, fast = head.next;
         // find out right middle node
-        while (fast.next != null && fast.next.next != null) { // keep doing until fast ptr react at last or 2nd last node
+        while (fast != null && fast.next != null) { // keep doing until fast ptr react at last or 2nd last node
             slow = slow.next;
             fast = fast.next.next;
         }

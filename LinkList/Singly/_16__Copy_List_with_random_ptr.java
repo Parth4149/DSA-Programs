@@ -37,11 +37,11 @@ public class _16__Copy_List_with_random_ptr {
      * <p>
      * Now copy the arbitrary(random) link in this fashion:
      * original->next->random = original->random->next
-     * <p>
+
      * Now restore the original and copy linked lists in this fashion in a single loop.
      * original->next = original->next->next;
      * copy->next = copy->next->next;
-     * <p>
+
      * Make sure that the last element of original->next is NULL.
      */
 // [GFG] https://www.geeksforgeeks.org/a-linked-list-with-next-and-arbit-pointer/
@@ -75,6 +75,7 @@ public class _16__Copy_List_with_random_ptr {
             copy.next = copy.next.next;
             copy = copy.next;
         } // dummy is the head of the duplicate list
+        curr.next = null;
         return dummy; // if we return head instead of dummy, it references to original list
     }                      // return dummy, it references to new list not original list
 

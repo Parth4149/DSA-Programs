@@ -3,12 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Array/Array.iml" filepath="$PROJECT_DIR$/Array/Array.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Binary Search Tree/Binary Search Tree.iml" filepath="$PROJECT_DIR$/Binary Search Tree/Binary Search Tree.iml" />
       <module fileurl="file://$PROJECT_DIR$/BitMagic/BitMagic.iml" filepath="$PROJECT_DIR$/BitMagic/BitMagic.iml" />
       <module fileurl="file://$PROJECT_DIR$/Heap/Heap.iml" filepath="$PROJECT_DIR$/Heap/Heap.iml" />
       <module fileurl="file://$PROJECT_DIR$/Java/Class Object/Inner Nested Class/Inner Nested Class.iml" filepath="$PROJECT_DIR$/Java/Class Object/Inner Nested Class/Inner Nested Class.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/JAVA PROGRAMMING.iml" filepath="$PROJECT_DIR$/.idea/JAVA PROGRAMMING.iml" />
-      <module fileurl="file://$PROJECT_DIR$/LinkedList/LinkedList.iml" filepath="$PROJECT_DIR$/LinkedList/LinkedList.iml" />
       <module fileurl="file://$PROJECT_DIR$/Loop/Loop.iml" filepath="$PROJECT_DIR$/Loop/Loop.iml" />
       <module fileurl="file://$PROJECT_DIR$/Mathematics/Mathematics.iml" filepath="$PROJECT_DIR$/Mathematics/Mathematics.iml" />
       <module fileurl="file://$PROJECT_DIR$/Queue/Priority Queue/Priority Queue.iml" filepath="$PROJECT_DIR$/Queue/Priority Queue/Priority Queue.iml" />
@@ -19,7 +17,6 @@
       <module fileurl="file://$PROJECT_DIR$/Stack/Stack.iml" filepath="$PROJECT_DIR$/Stack/Stack.iml" />
       <module fileurl="file://$PROJECT_DIR$/String/String.iml" filepath="$PROJECT_DIR$/String/String.iml" />
       <module fileurl="file://$PROJECT_DIR$/Test/Test.iml" filepath="$PROJECT_DIR$/Test/Test.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Tree/Tree.iml" filepath="$PROJECT_DIR$/Tree/Tree.iml" />
     </modules>
   </component>
 </project>

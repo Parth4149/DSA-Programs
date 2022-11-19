@@ -101,7 +101,7 @@ public class _12_RotateList {  // rotate list
         ListNode slow = head, fast = head;
         // here we are maintaining k distance between 2 pointers
         // move k iteration
-        while (fast != null && k-- > 0) {
+        while (fast != null && k--> 0) {
             fast = fast.next;
         }
         while (fast != null && fast.next != null) {

@@ -32,7 +32,7 @@ public class _6_reverse {
         if (head == null || head.next == null) { // when the base condition hits, recursion will be going to upward
             return head;                                                            // start fun call rm frm stack
         }
-        ListNode rest_head = reverse(head.next); // maintains the head pointer
+        ListNode rest_head = reverse2(head.next); // maintains the head pointer
         // rest of stmt will execute when recursion will be going to upward []
         head.next.next = head;          // now next node of curr_head point to curr_head (itself)
         head.next = null;               // and curr_head point to null becoz it is difficult to find end point of the list
