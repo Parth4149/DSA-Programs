@@ -55,11 +55,12 @@ public class _1_0_Knapsack {
 */
 
     // Tabulation [Bottom-up]  TC : O(n*w)   SC : O(n*w)
-/**
-    -> Initialize base case
-    -> choice diagram [changing parameter (reverse iteration)]
-    -> copy the recurrence
-*/
+
+    /**
+     * -> Initialize base case
+     * -> choice diagram [changing parameter (reverse iteration)]
+     * -> copy the recurrence
+     */
     // Using 2-D Array to store the Overlapping sub-problems.
     // Traversing the whole array to find the solution and storing in table.
     public static int knapsackBottomUp(int[] weight, int[] value, int n, int W) { // TC : O(n*W) , SC : O(n*W)
@@ -87,6 +88,7 @@ public class _1_0_Knapsack {
                 }
             }
         }
+        System.out.println(Arrays.deepToString(t));
         return t[n][W]; // last ele. of the Matrix will be Ans and we return it
     }
 
@@ -142,7 +144,7 @@ public class _1_0_Knapsack {
 //        int result = knapsackBottomUp(wight, value, W, n);
 
         //-> optimized SC
-        int result = knapsackOptimized(wight, value, n, W);
+        int result = knapsackBottomUp(wight, value, n, W);
         System.out.println(result); // 8
     }
 

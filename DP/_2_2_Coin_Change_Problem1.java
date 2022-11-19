@@ -8,17 +8,17 @@ public class _2_2_Coin_Change_Problem1 { // https://www.geeksforgeeks.org/coin-c
     // Recursion // TC: O(2^sum)
     public static int maxWays(int[] coin, int n, int sum) {
         // base condition
-         // if sum is 0, there is 1 solution (do not include any coin)
-        if(sum == 0)
+        // if sum is 0, there is 1 solution (do not include any coin)
+        if (sum == 0)
             return 1;
 
-         // if there is no any coins , then no solution exist
-        if(n == 0 )
+        // if there is no any coins , then no solution exist
+        if (n == 0)
             return 0;
 
         // choice diagram
-        if(coin[n - 1] <= sum) {
-            return maxWays(coin, n,sum - coin[n-1]) + maxWays(coin, n - 1, sum);
+        if (coin[n - 1] <= sum) {
+            return maxWays(coin, n, sum - coin[n - 1]) + maxWays(coin, n - 1, sum);
         } else {
             return maxWays(coin, n - 1, sum);
         }
@@ -26,29 +26,30 @@ public class _2_2_Coin_Change_Problem1 { // https://www.geeksforgeeks.org/coin-c
 
 
     // Memoization [Top-down]
-/**
-    public static int[][] t;
-    public static int maxWays(int[] coins, int n, int sum) { // TC: O(2^sum)
-        // base condition
-        if(sum == 0)
-            return 1;
 
-        if(n == 0)
-            return 0;
-
-        if(t[n][sum] != -1)
-            return t[n][sum];
-
-        // choice diagram
-        if(coins[n - 1] <= sum) {
-            t[n][sum] = maxWays(coins, n,sum - coins[n-1]) + maxWays(coins, n - 1, sum);
-            return t[n][sum];
-        } else {
-            t[n][sum] = maxWays(coins, n - 1, sum);
-            return t[n][sum];
-        }
-    }
-*/
+    /**
+     * public static int[][] t;
+     * public static int maxWays(int[] coins, int n, int sum) { // TC: O(2^sum)
+     * // base condition
+     * if(sum == 0)
+     * return 1;
+     * <p>
+     * if(n == 0)
+     * return 0;
+     * <p>
+     * if(t[n][sum] != -1)
+     * return t[n][sum];
+     * <p>
+     * // choice diagram
+     * if(coins[n - 1] <= sum) {
+     * t[n][sum] = maxWays(coins, n,sum - coins[n-1]) + maxWays(coins, n - 1, sum);
+     * return t[n][sum];
+     * } else {
+     * t[n][sum] = maxWays(coins, n - 1, sum);
+     * return t[n][sum];
+     * }
+     * }
+     */
 
     // Tabulation [Bottom-up]
 //    Using 2-D Array to store the Overlapping sub-problems.

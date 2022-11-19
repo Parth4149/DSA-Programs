@@ -9,7 +9,7 @@ public class _1_4_min_SubsetSum_Difference {
 
     public static int minDifference(int[] arr, int totalSum, int n, int calculatedSum) { // TC : O(2^n) , SC : theta(n) for rec stack
         // If we have reached last element. Sum of one subset is calculatedSum,
-        // sum of other subset is totalSum calculatedSum.
+        // sum of other subset is totalSum - calculatedSum.
         // Return absolute difference of two sums.
         if (n == 0) {
             return Math.abs(calculatedSum - (totalSum - calculatedSum));

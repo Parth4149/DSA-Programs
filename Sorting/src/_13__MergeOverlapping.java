@@ -19,14 +19,14 @@ public class _13__MergeOverlapping {
 //        Arrays.sort(intervals, (a, b) -> Integer.compare(a[0],b[0]));// OR  (a, b) -> a[0] - b[0])
         System.out.println(Arrays.deepToString(intervals));
         // now i run the loop using index i
-        for(int i = 0; i < n; i++) {
+        for (int i = 0; i < n; i++) {
             // initialize curr interval's start & end
             int min = intervals[i][start], max = intervals[i][end];
             // run the inner loop to handle multiple interval
             // here i compare next itvl's start and curr itvl's end
-            while(i < n - 1 && intervals[i + 1][start] <= max) {
-                min = Math.min(min, intervals[i + 1][0]);
-                max = Math.max(max, intervals[i + 1][1]);
+            while (i < n - 1 && intervals[i + 1][start] <= max) {
+                min = Math.min(min, intervals[i + 1][start]);
+                max = Math.max(max, intervals[i + 1][end]);
                 i++;
             }
             res.add(new int[]{min, max});
@@ -34,14 +34,14 @@ public class _13__MergeOverlapping {
         return res.toArray(new int[res.size()][]); // List to 2D array
     }
 
-    public static void InsertionSort(int[][] arr){
+    public static void InsertionSort(int[][] arr) {
         //we traverse the loop
-        for(int i = 1; i < arr.length; i++){
+        for (int i = 1; i < arr.length; i++) {
             // assign i'th row as key and initialize j = i-1
             int[] key = arr[i];
             int j = i - 1;
             // if arr[j] > key, we allocate space for key so that key can place on original position
-            while(j >= 0 && arr[j][0] > key[0]){ // compare first elements
+            while (j >= 0 && arr[j][0] > key[0]) { // compare first elements
                 arr[j + 1] = arr[j]; // move right
                 j--;
             }
@@ -53,7 +53,7 @@ public class _13__MergeOverlapping {
 //        int[][] nums = {{1,3},{2,4},{5,7},{6,8}};
 //        int[][] nums = {{7,9},{6,10},{4,5},{1,3},{2,4}};
 //        int[][] nums = {{1,3},{2,4},{4,5},{6,10},{7,9}};
-        int[][] nums = {{1,3},{2,6},{8,10},{15,18}};
+        int[][] nums = {{1, 3}, {2, 6}, {8, 10}, {15, 18}};
 
         int[][] res = mergeIntervals(nums);
         System.out.println(Arrays.deepToString(res));

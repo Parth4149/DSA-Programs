@@ -27,11 +27,12 @@ public class _2_3_Coin_Change_Problem2 {
     }
 
     // Tabulation [Bottom up]
-/**
-     -> Initialize base case
-     -> choice diagram [changing parameter (reverse iteration)]
-     -> copy the recurrence
-*/
+
+    /**
+     * -> Initialize base case
+     * -> choice diagram [changing parameter (reverse iteration)]
+     * -> copy the recurrence
+     */
     //    Using 2-D Array to store the Overlapping sub-problems.
     //    Traversing the whole array to find the solution and storing in table.
     public static int minCoinsTab(int[] coins, int n, int sum) {
