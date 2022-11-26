@@ -14,16 +14,16 @@ import java.util.Queue;
  * */
 
 class GraphBFS {
-    private int V; // No. of vertices
-    private ArrayList<ArrayList<Integer>> adj = new ArrayList<>();
-    private boolean[] visited;
+    public int V; // No. of vertices
+    public ArrayList<ArrayList<Integer>> adj = new ArrayList<>();
+    public boolean[] visited;
 
     public GraphBFS(int v) {// constructor
-        V = v;
+        this.V = v;
         for (int i = 0; i < v; i++) {
             adj.add(new ArrayList<Integer>());
         }
-        visited = new boolean[V];
+        visited = new boolean[this.V];
     }
 
     public void BFSDis(int v) { // BFS of disconnected graph
@@ -34,7 +34,7 @@ class GraphBFS {
         }
     }
 
-    private void BFS(int s) {
+    public void BFS(int s) {
         // Create a Queue for BFS
         Queue<Integer> q = new LinkedList<>();
 
@@ -57,7 +57,7 @@ class GraphBFS {
         }
     }
 
-    private void addEdge(int u, int v) {
+    public void addEdge(int u, int v) {
         adj.get(u).add(v);
         adj.get(v).add(u);
     }
