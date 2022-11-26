@@ -6,7 +6,7 @@ public class _3_5_Longest_Palindromic_Subsequence {
     public static int LPS(String X) {
         String Y = reverse(X);
         int m = X.length(), n = Y.length();
-        return lcs(X, reverse(X), m, n);
+        return lcs(X, Y, m, n);
     }
 
     // Tabulation [Bottom-up]       TC : O(m*n)   Sc : O(m*n)

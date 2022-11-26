@@ -101,7 +101,7 @@ public class _1_4_min_SubsetSum_Difference {
                 res = Math.min(res, Math.abs(i - (totalSum - i)));
             }
         }
-        System.out.println(Arrays.deepToString(t));
+//        System.out.println(Arrays.deepToString(t));
         return res;
     }
 

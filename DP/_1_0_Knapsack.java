@@ -88,7 +88,7 @@ public class _1_0_Knapsack {
                 }
             }
         }
-        System.out.println(Arrays.deepToString(t));
+//        System.out.println(Arrays.deepToString(t));
         return t[n][W]; // last ele. of the Matrix will be Ans and we return it
     }
 
