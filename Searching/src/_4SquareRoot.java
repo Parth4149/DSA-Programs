@@ -1,13 +1,13 @@
 public class _4SquareRoot {
-//    public static int sqrt(int num) { // time : O(logn)
+    //    public static int sqrt(int num) { // time : O(logn)
 //        int low = 0, high = num, ans = -1;
-//        while(low <= high) {
+//        while (low <= high) {
 //            int mid = (low + high) / 2;
 //            int midSquare = mid * mid;
-//            if(midSquare == num) {
+//            if (midSquare == num) {
 //                return mid;
 //            }
-//            if(num < midSquare) {
+//            if (num < midSquare) {
 //                high = mid - 1;
 //            }
 //            else {
@@ -17,23 +17,23 @@ public class _4SquareRoot {
 //        }
 //        return ans;
 //    }
+
     public static int sqrt(int num) {
         int left = 0, right = num / 2;
-        while(left <= right) {
+        while (left <= right) {
             int mid = left + (right - left) / 2;
             int midSquare = mid * mid;
-            if(num == midSquare) {
+            if (num == midSquare) {
                 return mid;
-            }
-            else if(num < midSquare) {
+            } else if (num < midSquare) {
                 right = mid - 1;
-            }
-            else {
+            } else {
                 left = mid + 1;
             }
         }
         return right;
     }
+
     public static void main(String[] args) {
         System.out.println(sqrt(25)); // 5
         System.out.println(sqrt(27)); // 5
