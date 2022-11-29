@@ -6,17 +6,6 @@ import java.util.Queue;
 
 //Shortest path in an Unweighted Graph
 class ShortestPath {
-    public static void main(String[] args) {
-        ShortestPath s = new ShortestPath(4);
-        s.addEdge(0, 1);
-        s.addEdge(0, 2);
-        s.addEdge(1, 2);
-        s.addEdge(1, 3);
-        s.addEdge(2, 3);
-
-        s.path(0);
-    }
-
     int V;
     ArrayList<ArrayList<Integer>> adj = new ArrayList<ArrayList<Integer>>();
     boolean[] visited;
@@ -51,8 +40,20 @@ class ShortestPath {
 
     }
 
+    public static void main(String[] args) {
+        ShortestPath s = new ShortestPath(4);
+        s.addEdge(0, 1);
+        s.addEdge(0, 2);
+        s.addEdge(1, 2);
+        s.addEdge(1, 3);
+        s.addEdge(2, 3);
+
+        s.path(0);
+    }
+
     void addEdge(int u, int v) {
         adj.get(u).add(v);
         adj.get(v).add(u);
     }
+
 }
