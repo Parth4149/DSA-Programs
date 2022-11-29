@@ -1,4 +1,5 @@
 package Matrix;
+
 import java.util.Arrays;
 import java.util.Collections;
 
@@ -37,20 +38,20 @@ public class _8_median {
         int desired_counter = (r * c + 1) / 2;
 
         // find min and max from given matrix
-        for(int i = 0; i < r; i++){
+        for (int i = 0; i < r; i++) {
             min = Math.min(min, matrix[i][0]);
             max = Math.max(max, matrix[i][c - 1]);
         }
 
         // binary search
-        while(min < max){
+        while (min < max) {
             int counter = 0;
             int middle = (min + max) / 2;
-            for(int i = 0; i < r; i++) {
+            for (int i = 0; i < r; i++) {
                 counter += upper_bound(matrix[i], middle); //  it returns an index ele. which is >= (least greater ele) target
             }
             System.out.println();
-            if(counter < desired_counter) {
+            if (counter < desired_counter) {
                 min = middle + 1;
             } else {
                 max = middle; // middle - 1
@@ -59,7 +60,8 @@ public class _8_median {
         // here both min and max are equal so we can return any one of them
         return min;
     }
-    public static int upper_bound(int[] arr, int target){
+
+    public static int upper_bound(int[] arr, int target) {
         // Initialise starting index and ending index
         int left = 0, right = arr.length - 1;
         // Till left is less than right
@@ -68,7 +70,7 @@ public class _8_median {
             int mid = left + (right - left) / 2;
 
             // If arr[mid] <= target, then find in right subarray
-            if(arr[mid] <= target) {
+            if (arr[mid] <= target) {
                 left = mid + 1;
             }
 
@@ -90,7 +92,7 @@ public class _8_median {
 //        int[][] arr = {{1,2,5},{2,6,9},{3,6,9}}; // 5 (count : 3)
 //        [1, 2, 2, 3, 5, 6, 6, 9, 9]
 
-        int[][] arr = {{5,10,20,30,40},{1,2,3,4,6},{11,13,15,17,19}}; // 11 (count : 4)
+        int[][] arr = {{5, 10, 20, 30, 40}, {1, 2, 3, 4, 6}, {11, 13, 15, 17, 19}}; // 11 (count : 4)
 //        [1, 2, 3, 4, 5, 6, 10, 11, 13, 15, 17, 19, 20, 30, 40]
 
         System.out.println(median(arr));

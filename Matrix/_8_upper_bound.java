@@ -10,7 +10,7 @@ public class _8_upper_bound {
             int mid = left + (right - left) / 2;
 
             // If arr[mid] <= target, then find in right subarray
-            if(arr[mid] <= target) {
+            if (arr[mid] <= target) {
                 left = mid + 1;
             }
 
@@ -19,10 +19,9 @@ public class _8_upper_bound {
                 right = mid;
             }
         }
-        if (left == arr.length){
+        if (left == arr.length) {
             System.out.println("The upper bound of " + target + " does not exist.");
-        }
-        else{
+        } else {
             System.out.println("The upper bound of " + target + " is " + arr[left] + " at index " + left);
         }
         return left;
@@ -30,14 +29,14 @@ public class _8_upper_bound {
 
     public static int recursive_upper_bound(int[] arr, int left, int right, int target) {
         // base condition
-        if(left > right || left == arr.length) {
+        if (left > right || left == arr.length) {
             return left;
         }
         // find middle index
         int mid = left + (right - left) / 2;
 
         // if arr[mid] <= target , then find in right subarray
-        if(arr[mid] <= target) {
+        if (arr[mid] <= target) {
             return recursive_upper_bound(arr, mid + 1, right, target);
         }
 

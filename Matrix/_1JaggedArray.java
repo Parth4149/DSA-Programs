@@ -12,11 +12,11 @@ public class _1JaggedArray {
     public static void main(String[] args) {
         int arr[][] = new int[3][];
         // main object is arr, individual objects are arr[i].  arr[i] length and find the length of the objects
-        for(int i = 0; i < arr.length; i++){
+        for (int i = 0; i < arr.length; i++) {
             arr[i] = new int[i + 1];
-            for(int j = 0; j < arr[i].length; j++){
+            for (int j = 0; j < arr[i].length; j++) {
                 arr[i][j] = i + 1;
-                System.out.print(arr[i][j]+" ");
+                System.out.print(arr[i][j] + " ");
             }
             System.out.println();
         }

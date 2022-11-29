@@ -1,11 +1,11 @@
-class _5StringBuilder {
+public class _5StringBuilder {
     public static void main(String[] args) {
-        StringBuilder str=new StringBuilder("abcd");
+        StringBuilder str = new StringBuilder("abcd");
 
         str.reverse();
         System.out.println(str);// dcba
 
-        str.setCharAt(2,'p');
+        str.setCharAt(2, 'p');
         System.out.println(str);// dcpa
 
         str.delete(0, 2);

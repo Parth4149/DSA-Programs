@@ -15,13 +15,14 @@ public class _5RotateMatrix {
     }
 
     public static void reverseAllRow(int[][] matrix) {
-        for(int i = 0; i < matrix.length; i++){
+        for (int i = 0; i < matrix.length; i++) {
             reverseRow(matrix, i);
         }
     }
+
     public static void reverseRow(int[][] matrix, int row) {
         int l = 0, r = matrix[row].length - 1;
-        while(l < r) {
+        while (l < r) {
             int swap = matrix[row][l];
             matrix[row][l] = matrix[row][r];
             matrix[row][r] = swap;
@@ -29,27 +30,29 @@ public class _5RotateMatrix {
             r--;
         }
     }
-    public static void transposeMatrix(int[][] matrix){ // one traversal
+
+    public static void transposeMatrix(int[][] matrix) { // one traversal
         int r = matrix.length, c = matrix[0].length;
-        for(int i = 0; i < r; i++){     // upper diagonal
-            for(int j = i + 1; j < c; j++){ // j = i + 1, we do not swap diagonal ele becoz both index of d. ele. are equal
+        for (int i = 0; i < r; i++) {     // upper diagonal
+            for (int j = i + 1; j < c; j++) { // j = i + 1, we do not swap diagonal ele becoz both index of d. ele. are equal
                 int swap = matrix[i][j];
                 matrix[i][j] = matrix[j][i];
                 matrix[j][i] = swap;
             }
         }
     }
-    public static void printMatrix(int[][] matrix){
-        for(int i = 0; i < matrix.length; i++){
-            for(int j = 0; j < matrix[i].length; j++){
-                System.out.print(matrix[i][j]+" ");
+
+    public static void printMatrix(int[][] matrix) {
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                System.out.print(matrix[i][j] + " ");
             }
             System.out.println();
         }
     }
 
     public static void main(String[] args) {
-        int[][] arr = {{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}};
+        int[][] arr = {{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}, {13, 14, 15, 16}};
 //        System.out.println(Arrays.deepToString(arr));
         rotateBy90(arr);
 //        printMatrix(arr);
@@ -65,9 +68,9 @@ public class _5RotateMatrix {
         // initialize no. of old rows as new col size and no. of old cols as new row size
         int[][] result = new int[c][r]; //
 
-        for(int i = 0; i < r; i++) {
-            for(int j = 0; j < c; j++) {
-                result[j][r-i-1] = matrix[i][j];
+        for (int i = 0; i < r; i++) {
+            for (int j = 0; j < c; j++) {
+                result[j][r - i - 1] = matrix[i][j];
             }
         }
         return result;

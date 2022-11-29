@@ -1,4 +1,5 @@
 import java.lang.StringBuffer;
-public class _12{
+
+public class _12 {
 
 }

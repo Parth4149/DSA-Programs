@@ -5,15 +5,16 @@ public class
 
 _9LeftMost {
     // Efficient approach 1
-    static final int CHAR=256;
-    public static int leftMost(String s){//time : O(h+CHAR) , space : O(CHAR)
-        boolean[] visited=new boolean[CHAR];
-        int res=-1;
-        for(int i=s.length()-1; i>=0; i--){
-            if(visited[s.charAt(i)])
-                res=i;
+    static final int CHAR = 256;
+
+    public static int leftMost(String s) { // time : O(h+CHAR) , space : O(CHAR)
+        boolean[] visited = new boolean[CHAR];
+        int res = -1;
+        for (int i = s.length() - 1; i >= 0; i--) {
+            if (visited[s.charAt(i)])
+                res = i;
             else
-                visited[s.charAt(i)]=true;
+                visited[s.charAt(i)] = true;
         }
         return res;
     }
@@ -32,22 +33,23 @@ _9LeftMost {
 //        return (res==Integer.MAX_VALUE) ? -1 : res;
 //    }
 
-/*
-    final int CHAR=256;
-    public int leftMost(String s){//
-        int[] count =new int[CHAR];
-        for(int i=0;i<s.length(); i++){
-            count[s.charAt(i)]++;
+    /*
+        final int CHAR=256;
+        public int leftMost(String s){//
+            int[] count =new int[CHAR];
+            for(int i=0;i<s.length(); i++){
+                count[s.charAt(i)]++;
+            }
+            for(int i=0; i<s.length(); i++){
+                if(count[s.charAt(i)]>1)
+                    return i;
+            }
+            return -1;
         }
-        for(int i=0; i<s.length(); i++){
-            if(count[s.charAt(i)]>1)
-                return i;
-        }
-        return -1;
-    }
-*/
+    */
     public static void main(String[] args) {
-        int ans=leftMost("aebbcc");
+        int ans = leftMost("aebbcc"); // 2
+//        int ans = leftMost("aebcd"); // -1
 
         System.out.println(ans);
     }
