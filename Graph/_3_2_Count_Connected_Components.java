@@ -2,20 +2,13 @@ package Graph;
 
 import java.util.ArrayList;
 
-/*
- * DFS is more suitable when there are solutions away from source
- * DFS is more suitable for game or puzzle problems, we make a decision ,then explore all paths through this decision
- * Time complexity : O(V+E) , adjacency list : O(V^2),
- * here, children are visited before the siblings
- * Applications : Acyclic graph and topological order etc.
- * DFS require less memory
- * */
-class GraphDFS {
-    private int V; // No. of vertices
+// Count connected components in an undirected Graph using DFS
+class graph_dfs {
+    public int V; // No. of vertices
     private ArrayList<ArrayList<Integer>> adj = new ArrayList<>();
     private boolean[] visited;
 
-    public GraphDFS(int v) {// constructor
+    public graph_dfs(int v) {// constructor
         V = v;
         for (int i = 0; i < v; i++) {
             adj.add(new ArrayList<>());
@@ -23,17 +16,20 @@ class GraphDFS {
         visited = new boolean[V];
     }
 
-    public void DFS(int v) {
+    public int DFS(int v) {
+        int count = 0;
         for (int i = 0; i < v; i++) {
             if (!visited[i]) {
                 DFSRec(i);
+                count++;
             }
         }
+        return count;
     }
 
     private void DFSRec(int s) {
         visited[s] = true;
-        System.out.print(s + " ");
+//        System.out.print(s + " ");
         for (int i : adj.get(s)) {
             if (!visited[i]) {
                 DFSRec(i);
@@ -47,7 +43,7 @@ class GraphDFS {
     }
 
     public static void main(String[] args) {// time comp : O(V+E)
-        GraphDFS g = new GraphDFS(8);
+        graph_dfs g = new graph_dfs(8);
 
         g.addEdge(0, 1);// first Graph
         g.addEdge(0, 2);
@@ -57,7 +53,9 @@ class GraphDFS {
         g.addEdge(4, 5);// Second Graph
         g.addEdge(4, 6);
         g.addEdge(5, 7);
-        g.DFS(g.V);
+
+        int ans = g.DFS(g.V);
+        System.out.println(ans);
     }
 }
 
